@@ -3,7 +3,7 @@
 // ============================================
 // IMPORTANT: Update this URL after deploying backend to Render
 // Example: const API_URL = 'https://your-backend-name.onrender.com/api';
-const API_URL = 'https://job-posting-api-1rsh.onrender.com';
+const API_URL = 'https://job-posting-api-1rsh.onrender.com/api';
 
 // ============================================
 // Utility Functions
