@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - JobPortal</title>
+    <meta name="description" content="Login to your JobPortal account">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">JobPortal</a>
+            <div class="nav-links" id="nav-links">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Login to access your account</p>
+
+            <div id="login-message" class="message" style="display: none;"></div>
+
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    Login
+                </button>
+            </form>
+
+            <p class="text-center mt-20">
+                Don't have an account? <a href="register.html" class="link">Register here</a>
+            </p>
+            <p class="text-center mt-20">
+                <a href="admin-login.html" class="link">Admin Login →</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Redirect if already logged in
+            if (isLoggedIn() && !isAdmin()) {
+                redirect('index.html');
+            } else if (isAdmin()) {
+                redirect('admin-dashboard.html');
+            }
+        });
+    </script>
+</body>
+
+</html>

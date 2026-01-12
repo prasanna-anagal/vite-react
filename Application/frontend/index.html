@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobPortal - Find Your Dream Job</title>
+    <meta name="description" content="Browse and apply to the best job opportunities">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">JobPortal</a>
+            <div class="nav-links" id="nav-links">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Find Your Dream Job Today</h1>
+            <p>Discover thousands of job opportunities from top companies. Your next career move starts here.</p>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="jobs-section">
+        <div class="container">
+            <div class="jobs-header">
+                <h2>Latest Job Openings</h2>
+                <span class="jobs-count" id="jobs-count">Loading...</span>
+            </div>
+            <div class="jobs-grid" id="jobs-container">
+                <!-- Jobs will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 JobPortal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Load jobs when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadJobs();
+        });
+    </script>
+</body>
+</html>

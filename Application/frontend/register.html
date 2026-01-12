@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - JobPortal</title>
+    <meta name="description" content="Create your JobPortal account">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">JobPortal</a>
+            <div class="nav-links" id="nav-links">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Register Form -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Create Account</h2>
+            <p class="subtitle">Join thousands of job seekers</p>
+
+            <div id="register-message" class="message" style="display: none;"></div>
+
+            <form id="register-form" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password"
+                        placeholder="Create a password (min 6 characters)" minlength="6" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword"
+                        placeholder="Confirm your password" minlength="6" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    Register
+                </button>
+            </form>
+
+            <p class="text-center mt-20">
+                Already have an account? <a href="login.html" class="link">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Redirect if already logged in
+            if (isLoggedIn()) {
+                redirect('index.html');
+            }
+        });
+    </script>
+</body>
+
+</html>

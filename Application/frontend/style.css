@@ -1,0 +1,810 @@
+/* ============================================
+   CSS VARIABLES & ROOT STYLES
+============================================ */
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --primary-light: #818cf8;
+    --secondary: #0ea5e9;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --dark: #1e293b;
+    --darker: #0f172a;
+    --light: #f8fafc;
+    --gray: #64748b;
+    --gray-light: #e2e8f0;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+/* ============================================
+   TYPOGRAPHY
+============================================ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--darker);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+/* ============================================
+   LAYOUT COMPONENTS
+============================================ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   NAVBAR
+============================================ */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.navbar .nav-links a {
+    color: var(--dark);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.navbar .nav-links a:hover {
+    background: var(--gray-light);
+    color: var(--primary);
+}
+
+.navbar .nav-links .btn-nav {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.navbar .nav-links .btn-nav:hover {
+    background: var(--primary-dark);
+    color: var(--white);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-email {
+    font-size: 0.9rem;
+    color: var(--gray);
+    background: var(--gray-light);
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+/* ============================================
+   HERO SECTION
+============================================ */
+.hero {
+    padding: 80px 0 60px;
+    text-align: center;
+}
+
+.hero h1 {
+    color: var(--white);
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   CARDS
+============================================ */
+.card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.card-body {
+    padding: 25px;
+}
+
+/* ============================================
+   AUTH FORMS (Login, Register)
+============================================ */
+.auth-container {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.auth-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-xl);
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+}
+
+.auth-card h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.auth-card .subtitle {
+    text-align: center;
+    color: var(--gray);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--dark);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--gray-light);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+    background: var(--white);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.btn-secondary {
+    background: var(--gray-light);
+    color: var(--dark);
+}
+
+.btn-secondary:hover {
+    background: var(--gray);
+    color: var(--white);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+    color: var(--white);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--danger) 0%, #dc2626 100%);
+    color: var(--white);
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-sm {
+    padding: 10px 18px;
+    font-size: 0.875rem;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* ============================================
+   JOB LISTINGS
+============================================ */
+.jobs-section {
+    padding: 60px 0;
+}
+
+.jobs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.jobs-header h2 {
+    color: var(--white);
+}
+
+.jobs-count {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.job-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    border-left: 4px solid var(--primary);
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.job-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.job-card h3 {
+    color: var(--dark);
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+}
+
+.job-card .company {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.job-type-badge {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+    color: var(--white);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 15px 0;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.job-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.job-description {
+    color: var(--gray);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.job-card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.applied-badge {
+    background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   ADMIN DASHBOARD
+============================================ */
+.admin-container {
+    padding: 40px 0;
+}
+
+.admin-header {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-lg);
+}
+
+.admin-header h1 {
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.admin-header p {
+    color: var(--gray);
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 1024px) {
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.admin-panel {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: var(--shadow-lg);
+}
+
+.admin-panel h3 {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--gray-light);
+}
+
+.admin-job-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--light);
+    border-radius: var(--radius-sm);
+    margin-bottom: 10px;
+    transition: var(--transition);
+}
+
+.admin-job-item:hover {
+    background: var(--gray-light);
+}
+
+.admin-job-info h4 {
+    color: var(--dark);
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+
+.admin-job-info span {
+    color: var(--gray);
+    font-size: 0.85rem;
+}
+
+.admin-job-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* ============================================
+   APPLICANTS MODAL
+============================================ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: var(--white);
+    border-radius: var(--radius);
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow: hidden;
+    transform: scale(0.9);
+    transition: var(--transition);
+}
+
+.modal-overlay.active .modal {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.modal-header h3 {
+    color: var(--dark);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--gray);
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    color: var(--danger);
+}
+
+.modal-body {
+    padding: 25px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.applicant-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: var(--light);
+    border-radius: var(--radius-sm);
+    margin-bottom: 10px;
+}
+
+.applicant-email {
+    font-weight: 500;
+    color: var(--dark);
+}
+
+.applicant-date {
+    color: var(--gray);
+    font-size: 0.85rem;
+}
+
+.no-applicants {
+    text-align: center;
+    color: var(--gray);
+    padding: 30px;
+}
+
+/* ============================================
+   MY APPLICATIONS PAGE
+============================================ */
+.applications-container {
+    padding: 40px 0;
+}
+
+.applications-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.applications-header h1 {
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.applications-header p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.application-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid var(--success);
+}
+
+.application-info h3 {
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.application-info .company {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.application-info .applied-date {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.application-status {
+    background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* ============================================
+   MESSAGES & ALERTS
+============================================ */
+.message {
+    padding: 15px 20px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.message-error {
+    background: #fef2f2;
+    color: var(--danger);
+    border: 1px solid #fecaca;
+}
+
+.message-success {
+    background: #f0fdf4;
+    color: var(--success);
+    border: 1px solid #bbf7d0;
+}
+
+/* ============================================
+   LOADING STATES
+============================================ */
+.loading {
+    text-align: center;
+    padding: 60px;
+    color: var(--white);
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   EMPTY STATES
+============================================ */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+}
+
+.empty-state h3 {
+    margin-bottom: 10px;
+    color: var(--gray);
+}
+
+.empty-state p {
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+.footer {
+    text-align: center;
+    padding: 30px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 60px;
+}
+
+/* ============================================
+   UTILITIES
+============================================ */
+.text-center { text-align: center; }
+.mt-20 { margin-top: 20px; }
+.mb-20 { margin-bottom: 20px; }
+
+.link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .jobs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .navbar .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .navbar .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .auth-card {
+        padding: 30px 20px;
+    }
+    
+    .application-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .job-card-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Applications - JobPortal</title>
+    <meta name="description" content="View your job applications">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">JobPortal</a>
+            <div class="nav-links" id="nav-links">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Applications Section -->
+    <div class="applications-container">
+        <div class="container">
+            <div class="applications-header">
+                <h1>My Applications</h1>
+                <p>Track all the jobs you've applied to</p>
+                <span class="jobs-count" id="applications-count"
+                    style="display: inline-block; margin-top: 15px;">Loading...</span>
+            </div>
+
+            <div id="applications-container">
+                <!-- Applications will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 JobPortal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Protect user page
+            if (!requireAuth()) return;
+
+            // Redirect admins
+            if (isAdmin()) {
+                redirect('admin-dashboard.html');
+                return;
+            }
+
+            // Load applications
+            loadMyApplications();
+        });
+    </script>
+</body>
+
+</html>
